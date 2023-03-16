@@ -3,25 +3,26 @@ Readme.md
 Bank合约部署到 goerli测试网的合约地址:
 
 0x3a1e21cE80d033aA741941FD127a9DD73B43a36D
-  
-  
+    
+    
 metamask 一账号向该合约转账 0.005 的交易hash:
 
 0x9d95737b8967791beadff9bb92703b528f592dfcee0fc1ff1e313c975812dd81
-  
-  
+    
+    
 metamask 另一账号向该合约转账 0.003 的交易hash:
 
 0x2a57e8c023999690c70e636fe72ca1a08a100abbc974e76b57577ba127d1ea4c
-  
-  
+    
+    
 通过ethers 以owner身份调用合约的withdrawAll函数, 取得合约内所有金额的交易hash:
 
 0xbfc9b964c5f1688d2e2d9e3cfa4db415d48d90d8814195f9fa9661b536d83249 
-  
-  
-  
-  
+    
+    
+    
+    
+在hardhat console中确认上面两笔转账已被记录到合约内, 然后调用withdrawAll()取得所有余额:
 ```
 $ npx hardhat console --network goerli
 Welcome to Node.js v16.17.1.
