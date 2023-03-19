@@ -1,13 +1,4 @@
-# Sample Hardhat Project
+已部署到 mumbai, 两个合约的地址为:
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+Score deployed to 0x413A339b80557c7A31cEA3307f03AcD93997EA5b
+Teacher deployed to 0xc93066Ef7e01664848e98cF9e18973651F2525fD
