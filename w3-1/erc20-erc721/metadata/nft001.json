@@ -1,0 +1,16 @@
+{
+    "title":"TerryNFT-A",
+    "description":"Terry's first NFT",
+    "image":"ipfs://QmRUAXEi7uuBf4zkCEiXgWepXpdTsWM9451gMBMXhBeHx2",
+    "attributes": [
+        {
+            "trait_type":"TokenType",
+            "value":"ERC721"
+        },
+        {
+            "trait_type":"TokenSequence",
+            "value":"001"
+        }
+    ],
+    "version":"2"
+}
