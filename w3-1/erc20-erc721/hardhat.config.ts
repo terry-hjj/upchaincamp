@@ -7,8 +7,8 @@ const config: HardhatUserConfig = {
   networks: {
 
     goerli: {
-      // url: process.env.GOERLI_RPC_URL,
-      url: "https://goerli.blockpi.network/v1/rpc/public",
+      url: process.env.GOERLI_RPC_URL,
+      // url: "https://goerli.blockpi.network/v1/rpc/public",
       timeout: 240000,
       accounts: {
         mnemonic: process.env.MNEMONIC
