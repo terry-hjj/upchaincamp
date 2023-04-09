@@ -20,6 +20,14 @@ function App() {
 
   const [stakeAmount, setStakeAmount] = useState(0)
   const refStakeAmount = useRef()
+
+  const [withdrawAmount, setWithdrawAmount] = useState(0)
+  const refWithdrawAmount = useRef()
+
+  const [approveTo, setApproveTo] = useState("")
+  const [depositAmount, setDepositAmount] = useState(0)
+  const refApproveTo = useRef()
+  const refDepositAmount = useRef()
   
 
 
@@ -223,6 +231,60 @@ function App() {
     })
   }
 
+  const withdraw = ()=>{
+    if (!ctx.erc20Token) {
+      alert("need metamask");
+      return
+    }
+    console.log(refWithdrawAmount.current.value)
+    const withdrawAmount = ethers.utils.parseUnits(refWithdrawAmount.current.value, 18)
+    ctx.bank.withdraw(withdrawAmount).then((tx)=>{
+      tx.wait().then((r)=>{
+        console.log("withdraw ok")
+        readContract()
+      }).catch((e)=>{
+        console.log("withdraw error: ", e)
+      })
+    }).catch((e)=>{
+      console.log("withdraw tx fail")
+    })
+  }
+
+  const approve = ()=>{
+    if (!ctx.erc20Token) {
+      alert("need metamask");
+      return
+    }
+    console.log(refApproveTo.current.value)
+    console.log(refDepositAmount.current.value)
+    const depositAmount = ethers.utils.parseUnits(refDepositAmount.current.value, 18)
+    ctx.erc20Token.approve(refApproveTo.current.value, depositAmount).then((tx)=>{
+      tx.wait().then((r)=>{
+        console.log("approve ok")
+        readContract()
+      })
+    }).catch((e)=>{
+      console.log("approve tx error: ", e)
+    })
+  }
+  const deposit = ()=>{
+    if (!ctx.erc20Token) {
+      alert("need metamask");
+      return
+    }
+    console.log(refDepositAmount.current.value)
+    console.log(refApproveTo.current.value)
+    const depositAmount = ethers.utils.parseUnits(refDepositAmount.current.value, 18)
+    ctx.bank.deposit(ctx.account, depositAmount).then((tx)=>{
+      tx.wait().then((r)=>{
+        console.log("deposit ok")
+        readContract()
+      })
+    }).catch((e)=>{
+      console.log("deposit tx error: ", e)
+    })
+  }
+
   return (
     <div className="App">
       App
@@ -259,8 +321,24 @@ function App() {
         <br/>
         <button onClick={permitDeposit}> 离线授权存款 </button>
       </div>
-      
+      <hr/>
+      <div>
+        <h3>取款</h3>
+        取款金额:
+        <input type="text" ref={refWithdrawAmount}/>
+        <br/>
+        <button onClick={withdraw}> 取款 </button>
+      </div>
+      <hr/>
+      <div>
+        <h3>Approve + deposit</h3>
+        授权给<input type="text" ref={refApproveTo}/><br/>
+        存款金额<input type="text" ref={refDepositAmount} /><br/>
+        <button onClick={approve}>授权</button>
+        <button onClick={deposit}>存款</button>
+      </div>
     </div>
+    
   );
 }
 
