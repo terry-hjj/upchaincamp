@@ -1,0 +1,15 @@
+{
+  "name": "thegraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.46.1",
+    "@graphprotocol/graph-ts": "^0.29.3"
+  }
+}
