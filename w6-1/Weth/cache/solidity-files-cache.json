@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/terry/codespace/hello_js/r3/Weth/contracts/WETH.sol": {
+      "lastModificationDate": 1683011208905,
+      "contentHash": "5870936de1a55d8d0bea6a1a269a8a91",
+      "sourceName": "contracts/WETH.sol",
+      "solcConfig": {
+        "version": "0.4.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.18"
+      ],
+      "artifacts": [
+        "WETH"
+      ]
+    }
+  }
+}
