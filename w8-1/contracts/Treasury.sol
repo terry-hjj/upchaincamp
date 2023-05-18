@@ -27,10 +27,10 @@ contract Treasury {
     owner = newOwner;
   }
 
-  function withdraw(uint amount) public onlyOwner {
+  function withdraw(address to, uint amount) public onlyOwner {
     require(deposited >= amount, "not enough deposited");
-    (bool success, ) = msg.sender.call{value: amount}(new bytes(0));
+    (bool success, ) = to.call{value: amount}(new bytes(0));
     require(success, "withdraw failed");
-    emit Withdraw(msg.sender, amount);
+    emit Withdraw(to, amount);
   }
 }
